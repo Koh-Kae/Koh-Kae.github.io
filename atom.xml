@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-12T06:51:16.501Z</updated>
+  <updated>2017-10-12T08:26:27.767Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,33 @@
   
   <entry>
     <title>first blog</title>
+    <link href="http://yoursite.com/2017/10/11/markdown%20test/"/>
+    <id>http://yoursite.com/2017/10/11/markdown test/</id>
+    <published>2017-10-11T08:26:57.000Z</published>
+    <updated>2017-10-12T08:26:27.767Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="還要沒得調位置"><a href="#還要沒得調位置" class="headerlink" title="還要沒得調位置"></a>還要沒得調位置</h2><h2 id="這是我的第一篇博客呀-啦啦啦"><a href="#這是我的第一篇博客呀-啦啦啦" class="headerlink" title="這是我的第一篇博客呀 啦啦啦~"></a>這是我的第一篇博客呀 啦啦啦~</h2><table><thead><tr><th>這是表格啦</th></tr></thead><tbody><tr><td></td></tr></tbody></table><blockquote><p>不知道這是什麼</p><p>噢 前面有個東西 </p><p>看著好像不錯</p></blockquote><h6 id="地方"><a href="#地方" class="headerlink" title="地方"></a>地方</h6><p>[^好煩啊 都是英文]: <img src="C:\Users\zzs\Desktop\　　\wallhaven-562818.jpg" alt="wallhaven-562818"></p><p><strong><em>放</em><u>個圖片試試 嘻嘻</u></strong></p><p>不能<del>忘了</del>我 刪除線altshift+5</p><p><a href="www.baidu.com">惦記我，這是鏈接呀</a></p><hr><ul><li style="list-style: none"><input type="checkbox"> 任務喔<pre><code>- 好像不錯  1. 咦 這麼多</code></pre></li></ul><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><h6 id="好啦-差不多了"><a href="#好啦-差不多了" class="headerlink" title="好啦 差不多了"></a>好啦 差不多了</h6><h6 id="​-愛你們喲-麼麼噠-筆芯"><a href="#​-愛你們喲-麼麼噠-筆芯" class="headerlink" title="​    愛你們喲 麼麼噠 筆芯"></a>​    愛你們喲 麼麼噠 筆芯</h6><p>###### </p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;還要沒得調位置&quot;&gt;&lt;a href=&quot;#還要沒得調位置&quot; class=&quot;headerlink&quot; title=&quot;還要沒得調位置&quot;&gt;&lt;/a&gt;還要沒得調位置&lt;/h2&gt;&lt;h2 id=&quot;這是我的第一篇博客呀-啦啦啦&quot;&gt;&lt;a href=&quot;#這是我的第一篇博客呀-啦啦啦&quot; cla
+      
+    
+    </summary>
+    
+    
+      <category term="隨筆" scheme="http://yoursite.com/tags/%E9%9A%A8%E7%AD%86/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>first blog</title>
     <link href="http://yoursite.com/2017/10/11/first-blog/"/>
     <id>http://yoursite.com/2017/10/11/first-blog/</id>
     <published>2017-10-11T07:53:57.000Z</published>
-    <updated>2017-10-12T06:51:16.501Z</updated>
+    <updated>2017-10-12T08:26:10.839Z</updated>
     
     <content type="html"><![CDATA[<p>這是我第一次寫博客 哈哈哈</p>]]></content>
     
@@ -37,27 +60,6 @@
     
     
       <category term="隨筆" scheme="http://yoursite.com/tags/%E9%9A%A8%E7%AD%86/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello World</title>
-    <link href="http://yoursite.com/2017/10/11/hello-world/"/>
-    <id>http://yoursite.com/2017/10/11/hello-world/</id>
-    <published>2017-10-11T03:17:56.318Z</published>
-    <updated>2017-10-11T03:17:56.319Z</updated>
-    
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.
-      
-    
-    </summary>
-    
     
   </entry>
   
