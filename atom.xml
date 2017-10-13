@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-10-12T09:00:29.532Z</updated>
+  <updated>2017-10-13T06:09:41.292Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,22 +17,53 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>first blog</title>
-    <link href="http://yoursite.com/2017/10/11/markdown%20test/"/>
-    <id>http://yoursite.com/2017/10/11/markdown test/</id>
-    <published>2017-10-11T08:26:57.000Z</published>
-    <updated>2017-10-12T09:00:29.532Z</updated>
+    <title>Git上传</title>
+    <link href="http://yoursite.com/2017/10/13/Git%E4%B8%8A%E4%BC%A0/"/>
+    <id>http://yoursite.com/2017/10/13/Git上传/</id>
+    <published>2017-10-13T06:09:57.000Z</published>
+    <updated>2017-10-13T06:09:41.292Z</updated>
     
-    <content type="html"><![CDATA[<h2 id="還要沒得調位置"><a href="#還要沒得調位置" class="headerlink" title="還要沒得調位置"></a>還要沒得調位置</h2><h2 id="這是我的第一篇博客呀-啦啦啦"><a href="#這是我的第一篇博客呀-啦啦啦" class="headerlink" title="這是我的第一篇博客呀 啦啦啦~"></a>這是我的第一篇博客呀 啦啦啦~</h2><a id="more"></a><table><thead><tr><th>這是表格啦</th></tr></thead><tbody><tr><td></td></tr></tbody></table><blockquote><p>不知道這是什麼</p><p>噢 前面有個東西 </p><p>看著好像不錯</p></blockquote><h6 id="地方"><a href="#地方" class="headerlink" title="地方"></a>地方</h6><p>[^好煩啊 都是英文]: <img src="C:\Users\zzs\Desktop\　　\wallhaven-562818.jpg" alt="wallhaven-562818"></p><p><strong><em>放</em><u>個圖片試試 嘻嘻</u></strong></p><p>不能<del>忘了</del>我 刪除線altshift+5</p><p><a href="www.baidu.com">惦記我，這是鏈接呀</a></p><hr><ul><li style="list-style: none"><input type="checkbox"> 任務喔<pre><code>- 好像不錯  1. 咦 這麼多</code></pre></li></ul><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><p>###### </p><h6 id="好啦-差不多了"><a href="#好啦-差不多了" class="headerlink" title="好啦 差不多了"></a>好啦 差不多了</h6><h6 id="​-愛你們喲-麼麼噠-筆芯"><a href="#​-愛你們喲-麼麼噠-筆芯" class="headerlink" title="​    愛你們喲 麼麼噠 筆芯"></a>​    愛你們喲 麼麼噠 筆芯</h6><p>###### </p>]]></content>
+    <content type="html"><![CDATA[<blockquote><p>怎样上传代码</p></blockquote><p><strong>第一步：建立git仓库</strong><br>cd到你的本地项目根目录下，执行git命令</p><a id="more"></a><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init1</div></pre></td></tr></table></figure><p><strong>第二步：将项目的所有文件添加到仓库中</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add .1</div></pre></td></tr></table></figure><p><strong>如果想添加某个特定的文件，只需把.换成特定的文件名即可</strong></p><p><strong>第三步：将add的文件commit到仓库</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;注释语句&quot;1</div></pre></td></tr></table></figure><hr><p><strong>第四步：去github上创建自己的Repository，创建页面如下图所示：</strong> </p><p><strong>点击下面的Create repository，就会进入到类似下面的一个页面，拿到创建的仓库的https地址，红框标示的就是</strong> </p><p><strong>第五步：重点来了，将本地的仓库关联到github上</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/hanhailong/CustomRatingBar1</div></pre></td></tr></table></figure><p><strong>后面的https链接地址换成你自己的仓库url地址，也就是上面红框中标出来的地址</strong></p><p><strong>第六步：上传github之前，要先pull一下，执行如下命令：</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master1</div></pre></td></tr></table></figure><p><strong>敲回车后，会执行输出类似如下</strong> </p><p><strong>第七步，也就是最后一步，上传代码到github远程仓库</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master1</div></pre></td></tr></table></figure><p><strong>执行完后，如果没有异常，等待执行完就上传成功了，中间可能会让你输入Username和Password，你只要输入github的账号和密码就行了</strong></p><blockquote><p>怎样修改代码后上传</p></blockquote><p><strong>1、 把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件，如果添加某个文件，加上文件名即可</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git add 文件名12</div></pre></td></tr></table></figure><p><strong>2.、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &apos;说明&apos;1</div></pre></td></tr></table></figure><p><strong>3、关联到远程库</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin 远程库地址1</div></pre></td></tr></table></figure><p><strong>4、获取远程库与本地同步合并</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master1</div></pre></td></tr></table></figure><p><strong>5、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure><blockquote><p>如何把你对自己项目的改动，给发到之前fork的那个原项目</p></blockquote><p><strong>pull request</strong></p><blockquote><p>自己fork的项目怎么做到和原项目同步</p></blockquote><p>你先git clone我的代码到本地，然后修修改改，然后你不是不能push到我的项目里么，你可以先在github页面上fork我的项目，有了你自己的项目地址（url）之后呢，</p><p>你在本地操作git remote add [sort name] [your url]，意思就是添加第二个远程仓库地址，这个仓库的“昵称”就是你刚指定的[sort name]，</p><p>你之后push文件呢 就通过指定这个［sort name］来push到这个你自己的仓库里</p><p>等你觉得想要把你改的发给原项目同步，就在你的项目上点Pull request按钮.说下另一种情况，</p><p>如果是原项目发生了改动，你要想同步到本地，就直接从git fetch origin 从原项目的地址同步代码，然后再merge就好了</p><p>当然，你可以通过新建分支的方式往自己的项目上push，这样同步的时候直接fetch就行了。</p>]]></content>
     
     <summary type="html">
     
-      &lt;h2 id=&quot;還要沒得調位置&quot;&gt;&lt;a href=&quot;#還要沒得調位置&quot; class=&quot;headerlink&quot; title=&quot;還要沒得調位置&quot;&gt;&lt;/a&gt;還要沒得調位置&lt;/h2&gt;&lt;h2 id=&quot;這是我的第一篇博客呀-啦啦啦&quot;&gt;&lt;a href=&quot;#這是我的第一篇博客呀-啦啦啦&quot; class=&quot;headerlink&quot; title=&quot;這是我的第一篇博客呀 啦啦啦~&quot;&gt;&lt;/a&gt;這是我的第一篇博客呀 啦啦啦~&lt;/h2&gt;
+      &lt;blockquote&gt;
+&lt;p&gt;怎样上传代码&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;&lt;strong&gt;第一步：建立git仓库&lt;/strong&gt;&lt;br&gt;cd到你的本地项目根目录下，执行git命令&lt;/p&gt;
     
     </summary>
     
     
-      <category term="隨筆" scheme="http://yoursite.com/tags/%E9%9A%A8%E7%AD%86/"/>
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>React</title>
+    <link href="http://yoursite.com/2017/10/12/React/"/>
+    <id>http://yoursite.com/2017/10/12/React/</id>
+    <published>2017-10-12T05:53:57.000Z</published>
+    <updated>2017-10-13T06:09:52.180Z</updated>
+    
+    <content type="html"><![CDATA[<blockquote><p>最近学了react </p></blockquote><h3 id="好处"><a href="#好处" class="headerlink" title="好处"></a><strong>好处</strong></h3><ul><li>自定义标签</li><li>结构清晰</li><li>代码模块化</li><li>更加语义化</li></ul><a id="more"></a><h3 id="不过也有缺点"><a href="#不过也有缺点" class="headerlink" title="不过也有缺点"></a><strong>不过也有缺点</strong></h3><ul><li>浏览器不支持这语法</li><li>必须通过一大堆工具来转换</li></ul><h3 id="一些需要注意的点"><a href="#一些需要注意的点" class="headerlink" title="一些需要注意的点"></a>一些需要注意的点</h3><p><strong>1. react声明组件时，组件名称必须以大写字母开头如</strong>👉：<code>&lt;Todo /&gt;</code><br><strong>2. 每个标签必须闭合,因为采用的 js+xml 写法，如</strong>👉: <code>&lt;input /&gt;</code><br><strong>3. 组件的返回值只能有一个顶层元素，如</strong>👇：</p><p>下面是错误的：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">render () &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;1&lt;/div&gt;</div><div class="line">    &lt;div&gt;2&lt;/div&gt;</div><div class="line">  )</div><div class="line">&#125;</div></pre></td></tr></table></figure><p>必须这样</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">render () &#123;</div><div class="line">  return (</div><div class="line">    &lt;div&gt;</div><div class="line">        &lt;div&gt;1&lt;/div&gt;</div><div class="line">        &lt;div&gt;2&lt;/div&gt;</div><div class="line">    &lt;/div&gt;</div><div class="line">  )</div><div class="line">&#125;</div></pre></td></tr></table></figure><p><strong>4. return后面要加一个括号,目的是防止 JavaScript 代码在解析时自动在换行处添加分号</strong>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"> renderSquare(i) &#123;</div><div class="line">        return (</div><div class="line">          &lt;Todo /&gt;</div><div class="line">        );</div><div class="line">&#125;</div></pre></td></tr></table></figure><p><strong>5. render()里面不能写 class,for,而是要写成className和htmlFor,因为 class ，for 是 javascript 的关键字，因此不能使用，如</strong>：</p><p>下面是错误的</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div class=“xxx”&gt;</div></pre></td></tr></table></figure><p>而是要写 className：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div className=&quot;xxx&quot;&gt;</div></pre></td></tr></table></figure><p><strong>6. 不要直接更新状态，如</strong></p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.state.comment = &apos;Hello&apos;;</div></pre></td></tr></table></figure><p>此代码<strong>不会</strong>重新渲染组件的，之前就这么写，啥反应也没有😂，应该要用<code>setState()</code>:👇</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">this.setState(&#123;comment: &apos;Hello&apos;&#125;);</div></pre></td></tr></table></figure><p>（<strong>注意！！</strong>：构造函数（constructor）是唯一能够初始化 this.state 的地方。）</p><p><strong>7. 使用style</strong></p><p>我们在 html 可以这么写：</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&quot;background-color:red;&quot;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><p>但是在 jsx 里面却不能这么写，必须用两个花括号包裹，并且里面不能写<code>-</code>，要用驼峰形式写，如上面的 <code>background-color</code>写成<code>backgroundColor</code>:</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;div style=&#123;&#123;backgroundColor: &apos;red&apos;&#125;&#125;&gt;&lt;/div&gt;</div></pre></td></tr></table></figure><p><strong>8. 关于 setState</strong></p><p>setState方法用于更新当前组件的state状态值，但调用这个方法后，state并不会立即更新，而是在render方法调用后才会更新</p><h3 id="react-特点"><a href="#react-特点" class="headerlink" title="react 特点"></a>react 特点</h3><ol><li><strong>虚拟DOM</strong>: React是以数据驱动的，每次数据变化React都会扫描整个虚拟DOM树，自动计算与上次虚拟DOM的差异变化，然后针对需要变化的部分进行实际的浏览器DOM更新。</li><li><strong>组件化：</strong> React可以从功能角度划分，将UI分解成不同组件，各组件都独立封装，整个UI是由一个个小组件构成的一个大组件，每个组件只关系自身的逻辑，彼此独立（比如你有个按钮，很多页面都有这个按钮，那么就可以把这个按钮封装成该组件）。</li><li><strong>单项数据流</strong>：React只有单向数据流动-从父节点传递到子节点</li></ol>]]></content>
+    
+    <summary type="html">
+    
+      &lt;blockquote&gt;
+&lt;p&gt;最近学了react &lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h3 id=&quot;好处&quot;&gt;&lt;a href=&quot;#好处&quot; class=&quot;headerlink&quot; title=&quot;好处&quot;&gt;&lt;/a&gt;&lt;strong&gt;好处&lt;/strong&gt;&lt;/h3&gt;&lt;ul&gt;
+&lt;li&gt;自定义标签&lt;/li&gt;
+&lt;li&gt;结构清晰&lt;/li&gt;
+&lt;li&gt;代码模块化&lt;/li&gt;
+&lt;li&gt;更加语义化&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+      <category term="笔记" scheme="http://yoursite.com/tags/%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   

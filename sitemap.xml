@@ -2,9 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/2017/10/11/markdown%20test/</loc>
+    <loc>http://yoursite.com/2017/10/12/React/</loc>
     
-    <lastmod>2017-10-12T09:00:29.532Z</lastmod>
+    <lastmod>2017-10-13T06:09:52.180Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2017/10/13/Git%E4%B8%8A%E4%BC%A0/</loc>
+    
+    <lastmod>2017-10-13T06:09:41.292Z</lastmod>
     
   </url>
   
