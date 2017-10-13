@@ -72,17 +72,13 @@
     <link href="http://yoursite.com/2017/10/11/first-blog/"/>
     <id>http://yoursite.com/2017/10/11/first-blog/</id>
     <published>2017-10-11T07:53:57.000Z</published>
-    <updated>2017-10-12T08:26:10.839Z</updated>
+    <updated>2017-10-13T06:15:52.149Z</updated>
     
-    <content type="html"><![CDATA[<p>這是我第一次寫博客 哈哈哈</p>]]></content>
+    <content type="html"><![CDATA[<p>這是我第一次寫博客 哈哈哈</p><a id="more"></a><p>我爱你</p>]]></content>
     
     <summary type="html">
     
-      
-      
-        &lt;p&gt;這是我第一次寫博客 哈哈哈&lt;/p&gt;
-
-      
+      &lt;p&gt;這是我第一次寫博客 哈哈哈&lt;/p&gt;
     
     </summary>
     
