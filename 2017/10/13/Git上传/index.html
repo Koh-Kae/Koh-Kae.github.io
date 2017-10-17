@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="笔记," />
+  <meta name="keywords" content="Git," />
 
 
 
@@ -100,17 +100,19 @@
 
 
 <meta name="description" content="怎样上传代码  第一步：建立git仓库cd到你的本地项目根目录下，执行git命令">
-<meta name="keywords" content="笔记">
+<meta name="keywords" content="Git">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Git上传">
 <meta property="og:url" content="http://yoursite.com/2017/10/13/Git上传/index.html">
 <meta property="og:site_name" content="Pola Bear&#39;s Blog">
 <meta property="og:description" content="怎样上传代码  第一步：建立git仓库cd到你的本地项目根目录下，执行git命令">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2017-10-13T06:09:41.292Z">
+<meta property="og:image" content="https://camo.githubusercontent.com/64ee45ca6222cfce64ec679d18b0c9e6ab0862d0/687474703a2f2f7777772e6c69616f78756566656e672e636f6d2f66696c65732f6174746163686d656e74732f30303133383439303932333933393064333535656230376439643634333035623633323261616634656461633165333030302f30">
+<meta property="og:updated_time" content="2017-10-17T03:45:28.621Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git上传">
 <meta name="twitter:description" content="怎样上传代码  第一步：建立git仓库cd到你的本地项目根目录下，执行git命令">
+<meta name="twitter:image" content="https://camo.githubusercontent.com/64ee45ca6222cfce64ec679d18b0c9e6ab0862d0/687474703a2f2f7777772e6c69616f78756566656e672e636f6d2f66696c65732f6174746163686d656e74732f30303133383439303932333933393064333535656230376439643634333035623633323261616634656461633165333030302f30">
 
 
 
@@ -332,6 +334,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -360,42 +384,27 @@
         <blockquote>
 <p>怎样上传代码</p>
 </blockquote>
-<p><strong>第一步：建立git仓库</strong><br>cd到你的本地项目根目录下，执行git命令</p>
+<h5 id="第一步：建立git仓库"><a href="#第一步：建立git仓库" class="headerlink" title="第一步：建立git仓库"></a><strong>第一步：建立git仓库</strong></h5><p>cd到你的本地项目根目录下，执行git命令</p>
 <a id="more"></a>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init</div></pre></td></tr></table></figure>
 <p><strong>第二步：将项目的所有文件添加到仓库中</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add .1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git add .</div></pre></td></tr></table></figure>
 <p><strong>如果想添加某个特定的文件，只需把.换成特定的文件名即可</strong></p>
 <p><strong>第三步：将add的文件commit到仓库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;注释语句&quot;1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &quot;注释语句&quot;</div></pre></td></tr></table></figure>
 <hr>
 <p><strong>第四步：去github上创建自己的Repository，创建页面如下图所示：</strong> </p>
 <p><strong>点击下面的Create repository，就会进入到类似下面的一个页面，拿到创建的仓库的https地址，红框标示的就是</strong> </p>
 <p><strong>第五步：重点来了，将本地的仓库关联到github上</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/hanhailong/CustomRatingBar1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin https://github.com/hanhailong/CustomRatingBar</div></pre></td></tr></table></figure>
 <p><strong>后面的https链接地址换成你自己的仓库url地址，也就是上面红框中标出来的地址</strong></p>
 <p><strong>第六步：上传github之前，要先pull一下，执行如下命令：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master1</div></pre></td></tr></table></figure>
-<p><strong>敲回车后，会执行输出类似如下</strong> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull origin master</div></pre></td></tr></table></figure>
 <p><strong>第七步，也就是最后一步，上传代码到github远程仓库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master1</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
 <p><strong>执行完后，如果没有异常，等待执行完就上传成功了，中间可能会让你输入Username和Password，你只要输入github的账号和密码就行了</strong></p>
 <blockquote>
-<p>怎样修改代码后上传</p>
-</blockquote>
-<p><strong>1、 把文件添加到版本库中，使用命令 git add .添加到暂存区里面去，不要忘记后面的小数点“.”，意为添加文件夹下的所有文件，如果添加某个文件，加上文件名即可</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git add .</div><div class="line">git add 文件名12</div></pre></td></tr></table></figure>
-<p><strong>2.、用命令 git commit告诉Git，把文件提交到仓库。引号内为提交说明</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git commit -m &apos;说明&apos;1</div></pre></td></tr></table></figure>
-<p><strong>3、关联到远程库</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git remote add origin 远程库地址1</div></pre></td></tr></table></figure>
-<p><strong>4、获取远程库与本地同步合并</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git pull --rebase origin master1</div></pre></td></tr></table></figure>
-<p><strong>5、把本地库的内容推送到远程，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令后会要求输入用户名、密码，验证通过后即开始上传。</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git push -u origin master</div></pre></td></tr></table></figure>
-<blockquote>
-<p>如何把你对自己项目的改动，给发到之前fork的那个原项目</p>
-</blockquote>
+<h4 id="如何把你对自己项目的改动，给发到之前fork的那个原项目"><a href="#如何把你对自己项目的改动，给发到之前fork的那个原项目" class="headerlink" title="如何把你对自己项目的改动，给发到之前fork的那个原项目"></a>如何把你对自己项目的改动，给发到之前fork的那个原项目</h4></blockquote>
 <p><strong>pull request</strong></p>
 <blockquote>
 <p>自己fork的项目怎么做到和原项目同步</p>
@@ -406,7 +415,115 @@
 <p>等你觉得想要把你改的发给原项目同步，就在你的项目上点Pull request按钮.说下另一种情况，</p>
 <p>如果是原项目发生了改动，你要想同步到本地，就直接从git fetch origin 从原项目的地址同步代码，然后再merge就好了</p>
 <p>当然，你可以通过新建分支的方式往自己的项目上push，这样同步的时候直接fetch就行了。</p>
-
+<h4 id="今天使用git-添加远程github仓库的时候提示错误：fatal-remote-origin-already-exists"><a href="#今天使用git-添加远程github仓库的时候提示错误：fatal-remote-origin-already-exists" class="headerlink" title="今天使用git 添加远程github仓库的时候提示错误：fatal: remote origin already exists."></a>今天使用git 添加远程github仓库的时候提示错误：fatal: remote origin already exists.</h4><p>1、先删除远程 Git 仓库<br>$ git init<br>$ git add .<br>$ git commit -m “”<br>$ git remote rm origin<br>$ git remote add origin git@github.com:FBing/java-code-generator<br>$ git pull origin master —-allow-unrelated-histories<br>$ git pull origin master<br>$ git push -u origin master</p>
+<h4 id="時間穿梭"><a href="#時間穿梭" class="headerlink" title="時間穿梭"></a>時間穿梭</h4><h5 id="刪除文件"><a href="#刪除文件" class="headerlink" title="刪除文件"></a>刪除文件</h5><p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ git checkout -- test.txt</div></pre></td></tr></table></figure>
+<p>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong></p>
+<h4 id="遠程倉庫"><a href="#遠程倉庫" class="headerlink" title="遠程倉庫"></a>遠程倉庫</h4><h5 id="添加到遠程庫"><a href="#添加到遠程庫" class="headerlink" title="添加到遠程庫"></a>添加到遠程庫</h5><p>要关联一个远程库，使用命令<code>git remote add origin git@server-name:path/repo-name.git</code>；</p>
+<p>关联后，使用命令<code>git push -u origin master</code>第一次推送master分支的所有内容；</p>
+<p>此后，每次本地提交后，只要有必要，就可以使用命令<code>git push origin master</code>推送最新修改；</p>
+<p>分布式版本系统的最大好处之一是在本地工作完全不需要考虑远程库的存在，也就是有没有联网都可以正常工作，而SVN在没有联网的时候是拒绝干活的！当有网络的时候，再把本地提交推送一下就完成了同步。</p>
+<hr>
+<h5 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">创建版本库</a></h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git init  #初始化所在目录为Git仓库</div></pre></td></tr></table></figure>
+<blockquote>
+<p>初始化的目录可以不为空</p>
+</blockquote>
+<h5 id="添加文件到版本库"><a href="#添加文件到版本库" class="headerlink" title="添加文件到版本库"></a>添加文件到版本库</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">git add &lt;file&gt; ...  #添加文件到暂存区（stage）</div><div class="line">        -f &lt;file&gt; ...  #强制添加到暂存区（可用于添加忽略文件）</div><div class="line">git commit -m &quot;提交说明&quot;  #从暂存区提交到版本库</div></pre></td></tr></table></figure>
+<blockquote>
+<p>git add 命令可多次执行，然后commit一次。</p>
+</blockquote>
+<h5 id="時光機穿梭"><a href="#時光機穿梭" class="headerlink" title="時光機穿梭"></a>時光機穿梭</h5><ul>
+<li><h6 id="查看状态、差异"><a href="#查看状态、差异" class="headerlink" title="查看状态、差异"></a>查看状态、差异</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git status  #查看仓库当前状态</div><div class="line">git diff [file]  #比较工作区和暂存区的差异</div><div class="line">git diff --cached [file]  #比较暂存区和版本库的差异</div><div class="line">git diff HEAD -- [file]  #比较工作区和版本库的差异</div></pre></td></tr></table></figure>
+<ul>
+<li><h6 id="版本切换"><a href="#版本切换" class="headerlink" title="版本切换"></a>版本切换</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">git log  #查看提交历史</div><div class="line">git log -1  #查看最后一次提交信息（-2 则是最后两次）</div><div class="line">git log --pretty=oneline  #单行格式显示提交历史</div><div class="line">        --graph  #显示分支合并图</div><div class="line">        --abbrev-commit  #简写的commit_id</div><div class="line">git reflog  #查看所有操作记录，包括删除的commit记录</div><div class="line">git reset --hard HEAD^  #回退到上一版本</div><div class="line"># HEAD 表当前版本， HEAD^ 表上一版本，HEAD^^ 表上两版本，HEAD~99 表上99版本。</div><div class="line">git reset --hard commit_id  #切换到指定版本</div></pre></td></tr></table></figure>
+<ul>
+<li><code>HEAD</code>指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令<code>git reset --hard commit_id</code>。</li>
+<li>穿梭前，用<code>git log</code>可以查看提交历史，以便确定要回退到哪个版本。</li>
+<li>要重返未来，用<code>git reflog</code>查看命令历史，以便确定要回到未来的哪个版本。</li>
+</ul>
+<blockquote>
+<p>Git跟踪管理的是修改，而非文件</p>
+</blockquote>
+<ul>
+<li><h6 id="撤销修改"><a href="#撤销修改" class="headerlink" title="撤销修改"></a>撤销修改</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git checkout -- &lt;file&gt;  #撤销工作区的修改</div><div class="line">git reset HEAD &lt;file&gt;  #撤销暂存区的修改</div></pre></td></tr></table></figure>
+<blockquote>
+<p>若已commit但没提交到远程库，可用版本回退进行撤销</p>
+<p>场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令<code>git checkout -- file</code>。</p>
+<p>场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令<code>git reset HEAD file</code>，就回到了场景1，第二步按场景1操作。</p>
+<p>场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考<a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/0013744142037508cf42e51debf49668810645e02887691000" target="_blank" rel="external">版本回退</a>一节，不过前提是没有推送到远程库。</p>
+</blockquote>
+<ul>
+<li><h6 id="删除文件"><a href="#删除文件" class="headerlink" title="删除文件"></a>删除文件</h6><ul>
+<li>方法一：工作区删除文件，然后正常提交</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">rm &lt;file&gt; ...  #工作区删除</div><div class="line">git add &lt;file&gt; ...  #将修改提交至暂存区</div><div class="line">git commit -m &quot;说明&quot;  #提交到版本库</div></pre></td></tr></table></figure>
+<ul>
+<li>方法二：直接命令删除工作区和暂存区，然后提交版本库</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git rm &lt;file&gt; ...  #删除工作区和暂存区文件</div><div class="line">git commit -m &quot;说明&quot;  #提交到版本库</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>删除、增加文件也都属于修改</p>
+<p><code>git checkout</code>其实是用版本库里的版本替换工作区的版本，无论工作区是修改还是删除，都可以“一键还原”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&gt; $ git checkout -- test.txt</div><div class="line">&gt;</div></pre></td></tr></table></figure>
+</blockquote>
+<p>&gt;</p>
+<blockquote>
+<p>命令<code>git rm</code>用于删除一个文件。如果一个文件已经被提交到版本库，那么你永远不用担心误删，但是要小心，你只能恢复文件到最新版本，你会丢失<strong>最近一次提交后你修改的内容</strong></p>
+</blockquote>
+<h5 id="远程仓库"><a href="#远程仓库" class="headerlink" title="远程仓库"></a>远程仓库</h5><ul>
+<li><h6 id="创建SSH-Key"><a href="#创建SSH-Key" class="headerlink" title="创建SSH Key"></a>创建SSH Key</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;youremail@example.com&quot;  #生成的Key在家目录.ssh文件夹里面，pub后缀是公钥，另一个是私钥。</div></pre></td></tr></table></figure>
+<ul>
+<li><h6 id="添加远程库"><a href="#添加远程库" class="headerlink" title="添加远程库"></a>添加远程库</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git remote add origin git@server-name:path/repo-name.git  #添加远程仓库</div><div class="line">git remote  #查看远程库信息</div><div class="line">           -v  #显示详细信息</div><div class="line">git push -u origin &lt;branch&gt;  #推送并关联指定分支到远程库</div></pre></td></tr></table></figure>
+<blockquote>
+<p>除第一次关联，之后push不用加-u选项</p>
+</blockquote>
+<ul>
+<li><h6 id="从远程库克隆"><a href="#从远程库克隆" class="headerlink" title="从远程库克隆"></a>从远程库克隆</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git clone git@server-name:path/repo-name.git  #将远程仓库克隆到当前目录</div><div class="line">git pull  #拉取远程仓库内容</div></pre></td></tr></table></figure>
+<h6 id="分支管理"><a href="#分支管理" class="headerlink" title="分支管理"></a>分支管理</h6><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">git branch &lt;branch&gt;  #创建分支</div><div class="line">git checkout &lt;branch&gt;  #切换到指定分支</div><div class="line">git checkout -b &lt;branch&gt;  #创建并切换到该分支</div><div class="line">git branch  #查看现有分支</div><div class="line">git branch -d &lt;branch&gt;  #删除指定分支</div><div class="line">git branch --set-upstream &lt;branch_local&gt; &lt;branch_remote&gt;  #指定本地分支与远程分支的链接</div><div class="line">git merge &lt;branch&gt;  #合并指定分支到当前分支</div><div class="line">          --no-ff &lt;branch&gt;  #禁用快速合并</div><div class="line">git merge --no-ff -m &quot;提交说明&quot; &lt;branch&gt;  #普通方式合并，并附提交说明</div><div class="line">git stash  #保存当前工作环境（包括工作区和暂存区）</div><div class="line">git stash list  #查看保存的工作列表</div><div class="line">git stash apply [stash@&#123;X&#125;]  #恢复工作状态，但不删除stash内容</div><div class="line">git stash pop [stash@&#123;X&#125;]  #恢复工作状态，并删除stash内容</div><div class="line">git stash drop [stash@&#123;X&#125;]  #删除stash内容</div><div class="line">git branch -D &lt;branch&gt;  #强制删除分支（常用于未合并的分支）</div></pre></td></tr></table></figure>
+<blockquote>
+<p>HEAD不是直接指向提交点，而是指向分支，分支再指向提交点</p>
+</blockquote>
+<ul>
+<li><h6 id="多人协作"><a href="#多人协作" class="headerlink" title="多人协作"></a>多人协作</h6></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">##error: failed to push some refs to ...</div><div class="line">1. git pull 远程库</div><div class="line">2. 解决冲突（若有），再push</div></pre></td></tr></table></figure>
+<ul>
+<li>分支管理策略图</li>
+</ul>
+<p><a href="https://camo.githubusercontent.com/64ee45ca6222cfce64ec679d18b0c9e6ab0862d0/687474703a2f2f7777772e6c69616f78756566656e672e636f6d2f66696c65732f6174746163686d656e74732f30303133383439303932333933393064333535656230376439643634333035623633323261616634656461633165333030302f30" target="_blank" rel="external"><img src="https://camo.githubusercontent.com/64ee45ca6222cfce64ec679d18b0c9e6ab0862d0/687474703a2f2f7777772e6c69616f78756566656e672e636f6d2f66696c65732f6174746163686d656e74732f30303133383439303932333933393064333535656230376439643634333035623633323261616634656461633165333030302f30" alt="image"></a></p>
+<h5 id="标签管理"><a href="#标签管理" class="headerlink" title="标签管理"></a>标签管理</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">git tag  #查看现有标签</div><div class="line">git tag &lt;tag_name&gt;  #给当前所在的commit打标签</div><div class="line">git tag &lt;tag_name&gt; &lt;commit_id&gt;  #给指定commit打标签</div><div class="line">git tag -a &lt;tag_name&gt; -m &quot;标签说明&quot; &lt;commit_id&gt;  #给指定commit打标签，并附说明</div><div class="line">        -s &lt;tag_name&gt; -m &quot;标签说明&quot; &lt;commit_id&gt;  #用gpg私钥签名</div><div class="line">        -d &lt;tag_name&gt;  #删除标签</div><div class="line">git show &lt;tag_name&gt;  #显示标签信息</div><div class="line">git push origin &lt;tag_name&gt;  #推送标签到远程库</div><div class="line">git push origin --tags  #推送所有未推送的标签到远程库</div><div class="line">git push origin :refs/tags/&lt;tag_name&gt;  #删除远程标签（先删除本地，再使用该命令删除）</div></pre></td></tr></table></figure>
+<h5 id="自定义Git"><a href="#自定义Git" class="headerlink" title="自定义Git"></a>自定义Git</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git config --global user.name &quot;you_name&quot;  #设置全局用户名</div><div class="line">git config --global user.email &quot;email@example.com&quot;  #设置全局邮箱</div><div class="line">git config --global color.ui true  #设置全局颜色显示</div><div class="line">git config --global alias.&lt;alias_name&gt; &lt;&apos;command_name&apos;&gt;  #设置别名</div></pre></td></tr></table></figure>
+<ul>
+<li><p>忽略特殊文件</p>
+<ol>
+<li>工作区创建<code>.gitignore</code>文件</li>
+<li>内容举例，如下：</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">#Windows:</div><div class="line">Thumbs.db</div><div class="line">ehthumbs.db</div><div class="line">Desktop.ini</div><div class="line"></div><div class="line">#Python:</div><div class="line">*.py[cod]</div><div class="line">*.so</div><div class="line">*.egg</div><div class="line">*.egg-info</div><div class="line">dist</div><div class="line">build</div><div class="line">#My configurations:</div><div class="line">db.ini</div><div class="line">deploy_key_rsa</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git check-ignore -v &lt;file&gt;  #查看忽略该文件的规则</div></pre></td></tr></table></figure>
+<blockquote>
+<p>规则有错时常用上述命令查找定位</p>
+</blockquote>
+<ul>
+<li>配置别名列表</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">配置别名列表</div><div class="line">git config --global alias.confg &apos;config --global&apos;</div><div class="line">git confg alias.st status</div><div class="line">git confg alias.co checkout</div><div class="line">git confg alias.ci commit</div><div class="line">git confg alias.br branch</div><div class="line">git confg alias.unstage &apos;reset HEAD&apos;</div><div class="line">git confg alias.last &apos;log -1&apos;</div><div class="line">git confg alias.lg &quot;log --color --graph --pretty=format:&apos;%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)&lt;%an&gt;%Creset&apos; --abbrev-commit&quot;</div></pre></td></tr></table></figure>
       
     </div>
 
@@ -461,7 +578,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/笔记/" rel="tag"><i class="fa fa-tag"></i> 笔记</a>
+            <a href="/tags/Git/" rel="tag"><i class="fa fa-tag"></i> Git</a>
           
         </div>
       
@@ -483,6 +600,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/13/Friday/" rel="prev" title="Friday">
+                Friday <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -529,8 +650,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oxppsnlbz.bkt.clouddn.com/avatar.jpg"
@@ -545,18 +675,25 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">6</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
           
 
           
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
 
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">4</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -618,6 +755,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-5"><a class="nav-link" href="#第一步：建立git仓库"><span class="nav-number">1.</span> <span class="nav-text">第一步：建立git仓库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如何把你对自己项目的改动，给发到之前fork的那个原项目"><span class="nav-number"></span> <span class="nav-text">如何把你对自己项目的改动，给发到之前fork的那个原项目</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#今天使用git-添加远程github仓库的时候提示错误：fatal-remote-origin-already-exists"><span class="nav-number"></span> <span class="nav-text">今天使用git 添加远程github仓库的时候提示错误：fatal: remote origin already exists.</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#時間穿梭"><span class="nav-number"></span> <span class="nav-text">時間穿梭</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#刪除文件"><span class="nav-number">1.</span> <span class="nav-text">刪除文件</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#遠程倉庫"><span class="nav-number"></span> <span class="nav-text">遠程倉庫</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#添加到遠程庫"><span class="nav-number">1.</span> <span class="nav-text">添加到遠程庫</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建版本库"><span class="nav-number">2.</span> <span class="nav-text">创建版本库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#添加文件到版本库"><span class="nav-number">3.</span> <span class="nav-text">添加文件到版本库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#時光機穿梭"><span class="nav-number">4.</span> <span class="nav-text">時光機穿梭</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#查看状态、差异"><span class="nav-number">4.1.</span> <span class="nav-text">查看状态、差异</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#版本切换"><span class="nav-number">4.2.</span> <span class="nav-text">版本切换</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#撤销修改"><span class="nav-number">4.3.</span> <span class="nav-text">撤销修改</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#删除文件"><span class="nav-number">4.4.</span> <span class="nav-text">删除文件</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#远程仓库"><span class="nav-number">5.</span> <span class="nav-text">远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#创建SSH-Key"><span class="nav-number">5.1.</span> <span class="nav-text">创建SSH Key</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#添加远程库"><span class="nav-number">5.2.</span> <span class="nav-text">添加远程库</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#从远程库克隆"><span class="nav-number">5.3.</span> <span class="nav-text">从远程库克隆</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分支管理"><span class="nav-number">5.4.</span> <span class="nav-text">分支管理</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#多人协作"><span class="nav-number">5.5.</span> <span class="nav-text">多人协作</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#标签管理"><span class="nav-number">6.</span> <span class="nav-text">标签管理</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自定义Git"><span class="nav-number">7.</span> <span class="nav-text">自定义Git</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -657,7 +810,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共1.5k字</span>
+  <span class="post-count">博客全站共10.3k字</span>
 </div>
 
 
