@@ -81,7 +81,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="java," />
+  <meta name="keywords" content="vue," />
 
 
 
@@ -97,18 +97,18 @@
 
 
 
-<meta name="description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
-<meta name="keywords" content="java">
+<meta name="description" content="匯總">
+<meta name="keywords" content="vue">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java程序执行原理">
-<meta property="og:url" content="http://yoursite.com/2017/10/17/java程序执行原理/index.html">
+<meta property="og:title" content="vue react 資料">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/2017-10-17vue React 资料/index.html">
 <meta property="og:site_name" content="Pola Bear&#39;s Blog">
-<meta property="og:description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
+<meta property="og:description" content="匯總">
 <meta property="og:locale" content="zh-hk">
-<meta property="og:updated_time" content="2017-10-17T11:47:46.417Z">
+<meta property="og:updated_time" content="2017-11-03T07:50:20.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java程序执行原理">
-<meta name="twitter:description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
+<meta name="twitter:title" content="vue react 資料">
+<meta name="twitter:description" content="匯總">
 
 
 
@@ -136,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/10/17/java程序执行原理/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/2017-10-17vue React 资料/"/>
 
 
 
 
 
-  <title> java程序执行原理 | Pola Bear's Blog </title>
+  <title> vue react 資料 | Pola Bear's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
@@ -283,7 +283,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/java程序执行原理/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/2017-10-17vue React 资料/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="北極熊">
@@ -304,7 +304,7 @@
             
             
               
-                java程序执行原理
+                vue react 資料
               
             
           </h1>
@@ -319,7 +319,7 @@
               
                 <span class="post-meta-item-text">發表於</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-17T19:46:24+08:00">
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-17T21:12:09+08:00">
                 2017-10-17
               </time>
             
@@ -342,8 +342,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/筆記/" itemprop="url" rel="index">
-                    <span itemprop="name">筆記</span>
+                  <a href="/categories/技術/" itemprop="url" rel="index">
+                    <span itemprop="name">技術</span>
                   </a>
                 </span>
 
@@ -377,42 +377,29 @@
       
 
       
-        <p>java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。</p>
-<a id="more"></a>
-<p>​     我们知道，经过编译的字节码class文件可以直接放到java虚拟机去解释执行（JIT方式）， 我们通过在命令行调用“java  class文件的路径”就可以使用jvm（java.exe/javaw.exe）来解释执行这些字节码文件。   </p>
-<p>​     我们知道，java源代码(.java文件)经过java编译器javac编译以后，会得到java的字节码的中间语言文件，也就是我们通常所说的类文件（.class文件），这些类文件会按照java源文件的包结构分目录存放，jar 命令的作用就是按照这种包目录结构打包这些字节码的class文件，形成一个jar包，并且增加一个META-INF/ MANIFEST.MF 的元文件 。这样打包的jar文件的确是包含了按照包目录结构存放的字节码class文件，但是这时候如果你在命令行：jar -jar  a.jar 的话，会提示你指定一个主类，这是因为，虽然jar包里面包含了按照包目录结构存放的字节码class文件，但是却并不知道主类（含有 public static void main(String[])入口 方法的类）的位置，所以需要你手动的指定主类，然后才可以开始执行。</p>
-<p>​    当然， 只需要在打包jar文件的时候，将主类的信息包含进去了以后，再：jar -jar  a.jar 的话， 就不需要手动的指出主类是哪个类了。进行如下操作：</p>
-<p>​    新建一个.mf文件，名字任意，例如：manifest.mf ，在里面指定主类是哪个类，即：写入一行 ：Main-Class: test.Test。然后，打包： jar  cvfm test.jar manifest.mf test； 这样打成的包test.jar里面就已经包含主类是哪个类的信息了。这样的话，在命令行里面直接执行：jar -jar    test.jar 就可以运行该应用了，这种情况下， jvm会去这个class文件的包中寻找入口函数如何进入执行。</p>
-<p>​     我们发布java应用的时候，直接发布按照包结构存放的class文件夹显然是很不方便的，一般需要打包成jar文件来发布。 就好象我们将java应用部署到tomcat web 服务器上去的时候一样， 虽然直接将按照包结构存放的class文件夹放过去是可以的，但是通常还是要打包成jar包的格式来部署，因为这样文件的数量会少，便于管理部署的。</p>
-<p>​       </p>
-<p>​     将命令行的“java -jar jar文件的路径” 写到一个.bat文件里面 或者linux下面的shell文件里面，这样就可以通过执行.bat文件或者shell脚步来执行java 应用程序了，也就是说可以直接双击windows下的.bat文件或者linux下的.sh文件来运行java应用程序了。</p>
-<p>  一般在安装jre (Java Runtime Environment) 的时候，安装文件会将 .jar 文件映射给 javaw.exe 打开，如果没有关联，也可以手动的通过文件夹选项来手动关联，关联以后，当用户在windows下双击jar文件的时候，资源管理器就会调用javaw来运行该jar文件，这样就可以实现双击运行jar文件了。</p>
-<p>jdk 相关过程原理分析。</p>
-<p> 我们知道，在jdk的bin目录下有很多的exe文件，例如java.exe， javac.exe, javadoc.exe等。 这些exe文件格式实质上是windows操作系统下的可执行文件格式（在dos下还有一种可执行可是是.com后缀的格式，不过现在已经不常见了），它们是由C语言写成的.c文件经过编译后生成的。例如：java.exe对应的源码就是java.c文件。java.c的main入口函数中会调用函数：CreateExecutionEnvironment，该函数中会查找jre路径，然后根据jvm.cfg配置文件配置的虚拟机动态链接库（jvm.dll）路径参数装载jvm.dll动态连接库，也就是加载java虚拟机（java虚拟机是C++写的，也有部分C代码），然后初始化jvm.dll（所有的dll都是本地语言写成的）， 并挂接到JNIEnv（JNI调用接口）实例，最后调用JNIEnv实例装载并处理class类。<br>​      由上面的分析我们可以看到，windows操作系统下的exe文件大部分情况下是使用windows本地语言所写的代码编译而成的的，这些exe文件用于完成一定的功能，例如java.exe， 可以用来查找并加载jvm.dll ，然后通过调用jvm.dll 的  接口来加载java的字节码中间语言文件.class文件，并启动java应用程序。 或者完成其它的一些功能等。exe文件也可能是本地语言代码生成的exe文件与jar包压缩而成的。</p>
-<p>​    </p>
-<p>​    </p>
-<p>​      </p>
-<p>   更加方便的方法是，将jar做成exe。例如eclipse 就是一个java 应用程序，就采用了 使用exe来wrapper。</p>
-<p>   wrapper 基本原理： 在本地化语言（C或者C++等）代码中调用jvm.dll，然后通过jvm.dll提供的接口加载压缩在一起的jar包中的主类class的入口方法（ static void main(String args[])， 从而启动java应用程序，这种加壳方式形成的java应用的exe文件在启动的时候会表现为一个exe进程，这种方式更常见。（形式是一个由本地化语言exe和jar包一起压缩而成的一个exe文件）；</p>
-<p>​        也可以在本地化语言（C或者C++等）代码中调用java.exe/javaw.exe进程（java.exe进程会执行前一种方法的步骤来完成jvm.dll的加载）来加载jvm.dll，然后通过jvm.dll提供的接口加载压缩在一起的jar包中的主类class的入口方法（ static void main(String args[])， 从而启动java应用程序，这种加壳方式形成的java应用的exe文件在启动的时候会表现为一个exe进程和一个javaw进程。（形式是一个由本地化语言exe和jar包一起压缩而成的一个exe文件，当然，也可以选择不将jar文件和本地exe文件压缩在一起）；</p>
-<p>   这两种根本上都是通过本地代码来加载java虚拟机，然后在本地代码中通过调用jvm.dll的接口来完成class主文件的加载和java应用的启动的。</p>
-<p>   具体来说，也有很多种方法。</p>
-<p>   可以使用c语言等本地语言创建一个本地代码（编译后生成exe文件），在该本地代码中加载jvm的动态库，并通过动态库的接口来在本进程内启动java虚拟机，即调用JNI_CreateJavaVM这个导出函数来创建Java虚拟机，得到JNIEnv指针，然后调用FindClass查找Main Class，之后调用GetStaticMethodID方法得到main方法，并执行main方法。    编译该本地代码得到一个exe文件。</p>
-<p>   将Java应用程序的class目录结构打包为jar文件，并与本地代码exe文件合并：在Dos提示符下执行copy命令:</p>
-<p>C:/&gt;copy test.exe+test.jar test.exe</p>
-<p>其实，就是将Java打包文件追加到exe文件尾部。打开文件属性对话框，可看到有“压缩文件”属性页。</p>
-<p>老牌的JBuilder.exe开发工具编译生成的exe文件即采用如下方式生成。</p>
-<p>后记：大家在使用<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2和<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3时，在任务管理器中会看到二者的不同。</p>
-<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2是先启动<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe文件，然后由<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe启动Javaw.exe文件来创建虚拟机。</p>
-<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2在任务管理器中显示为<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe和javaw.exe两个进程。</p>
-<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3在任务管理器中显示为<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe一个进程。</p>
-<p>从上面可以看出，<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2和<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3采用了不同的虚拟机加载方式。</p>
-<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2采用创建子进程的方法调用javaw.exe来启动，在windows下面可以用CreateProcess方法，此种方法较简单，具体可参见<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>源码。</p>
-<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3加载java虚拟机的另外一种方法是加载jvm的动态库，并通过动态库的接口来在本进程内启动java虚拟机。本文开头即采用的第二种方法。</p>
-<p>这很简单，启动vc，建一个win32 project，WinMain里使用ShellExecute函数即可，主要代码是：</p>
-<p>#include “stdafx.h”<br>#include “resource.h”</p>
-<p>int APIENTRY WinMain(HINSTANCE hInstance,<br>HINSTANCE hPrevInstance,<br>LPSTR lpCmdLine,<br>int nCmdShow)<br>{<br>ShellExecute(NULL,”open”,”.//jre6//bin//javaw.exe”,”-ea -Dfile.encoding=GB18030 -Xmx600M -splash:res//splash.png -classpath /“./lib/*/“ com.zms.laser.uis.Starter”,”.//“,SW_SHOWNORMAL);<br>return 0;<br>}<br>要给编译出来的可执行程序一个图标，很简单，只要添加一个icon的资源，让这个icon的id最小即可。编译器会把具有最小id的icon当作最终exe的图标。</p>
-<p>所有的给java 应用 加 exe 外壳的 工具软件 采用的都是以上原理中的一种。</p>
+        <p><a href="http://www.kancloud.cn/jikeytang/qq/81132" target="_blank" rel="external">匯總</a><br><a id="more"></a></p>
+<p><a href="http://t.cn/RGE7EXW" target="_blank" rel="external">群内资料</a></p>
+<p><a href="http://t.cn/Rb1aUQT" target="_blank" rel="external">Vuejs群资料</a></p>
+<p><a href="http://cn.vuejs.org/guide/" target="_blank" rel="external">官网</a></p>
+<p><a href="http://forum.vuejs.org/" target="_blank" rel="external">论坛</a></p>
+<p><a href="http://i.youku.com/u/UMzQxOTE4MDE5Mg==" target="_blank" rel="external">小凡哥Vuejs视频</a></p>
+<p><a href="https://github.com/bhnddowinf/vuejs-learn" target="_blank" rel="external">讲解 vue.js 实例</a></p>
+<p><a href="http://![img](file:///C:\Users\zzs\AppData\Local\Temp\%W@GJ$ACOF(TYDYECOKVDYB.png" target="_blank" rel="external">Vue开源项目库</a>t.cn/Ri90k28)</p>
+<p><a href="http://vuefe.cn/" target="_blank" rel="external">vue2.0相关文档</a></p>
+<p><a href="http://vuejs.org/guide/" target="_blank" rel="external">中文文档</a></p>
+<p><a href="http://router.vuejs.org/zh-cn/index.html" target="_blank" rel="external">官网原文文档</a></p>
+<p><a href="http://vuex.vuejs.org/en/index.html" target="_blank" rel="external">vue-router2.0中文文档</a></p>
+<p><a href="https://github.com/bhnddowinf/vuejs2-learn" target="_blank" rel="external">vuex2.0 英文文档</a></p>
+<p><a href="https://github.com/opendigg/awesome-github-vue" target="_blank" rel="external">v2学习项目</a></p>
+<p>vue的组件以及demo全集</p>
+<h3 id="react"><a href="#react" class="headerlink" title="react"></a>react</h3><p>react：647575542<br><a href="https://github.com/enaqx/awesome-react" target="_blank" rel="external">https://github.com/enaqx/awesome-react</a> </p>
+<p><a href="http://www.react-china.org/" target="_blank" rel="external">react海量资源</a></p>
+<p><a href="https://facebook.github.io/react/index.html" target="_blank" rel="external">react.js 中文论坛</a></p>
+<p><a href="https://facebook.github.io/react/docs/getting-started.html" target="_blank" rel="external">react.js 官方网址</a> </p>
+<p><a href="http://material-ui.com/#/" target="_blank" rel="external">react.js 官方文档</a></p>
+<p><a href="http://touchstonejs.io/" target="_blank" rel="external">react.js material UI</a></p>
+<p><a href="http://amazeui.org/react/" target="_blank" rel="external">react.js TouchstoneJS UI</a></p>
+<p><a href="http://ant.design/" target="_blank" rel="external">react.js amazeui UI</a></p>
 
       
     </div>
@@ -468,7 +455,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+            <a href="/tags/vue/" rel="tag"><i class="fa fa-tag"></i> vue</a>
           
         </div>
       
@@ -481,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/10/16/汇总/" rel="next" title="汇总">
-                <i class="fa fa-chevron-left"></i> 汇总
+              <a href="/2017/10/17/2017-10-17vue/" rel="next" title="vue react 資料">
+                <i class="fa fa-chevron-left"></i> vue react 資料
               </a>
             
           </div>
@@ -491,8 +478,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/10/17/vue React 资料/" rel="prev" title="vue react 資料">
-                vue react 資料 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/03/2017-11-03front-end/" rel="prev" title="front-end">
+                front-end <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -540,8 +527,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oxppsnlbz.bkt.clouddn.com/avatar.jpg"
@@ -556,7 +552,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">10</span>
                 <span class="site-state-item-name">文章</span>
               </a>
             </div>
@@ -574,7 +570,7 @@
           
             <div class="site-state-item site-state-tags">
               <a href="/tags">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">標籤</span>
               </a>
             </div>
@@ -588,7 +584,7 @@
           
             
               <span class="links-of-author-item">
-                <a href="https://github.com/your-user-name" target="_blank" title="GitHub">
+                <a href="https://github.com/" target="_blank" title="GitHub">
                   
                     <i class="fa fa-fw fa-github"></i>
                   
@@ -597,7 +593,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="https://twitter.com/your-user-name" target="_blank" title="Twitter">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
                   
                     <i class="fa fa-fw fa-twitter"></i>
                   
@@ -606,7 +602,7 @@
               </span>
             
               <span class="links-of-author-item">
-                <a href="http://douban.com/people/your-user-name" target="_blank" title="豆瓣">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
                   
                     <i class="fa fa-fw fa-globe"></i>
                   
@@ -628,6 +624,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#react"><span class="nav-number">1.</span> <span class="nav-text">react</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -668,7 +680,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共12.7k字</span>
+  <span class="post-count">博客全站共13.1k字</span>
 </div>
 
 

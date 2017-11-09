@@ -1,0 +1,815 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="zh-hk">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<script>
+    (function(){
+        if(''){
+            if (prompt('请输入文章密码') !== ''){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="http://oxppsnlbz.bkt.clouddn.com/favicon.png?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java程序执行原理">
+<meta property="og:url" content="http://yoursite.com/2017/10/17/2017-10-17java程序执行原理/index.html">
+<meta property="og:site_name" content="Pola Bear&#39;s Blog">
+<meta property="og:description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
+<meta property="og:locale" content="zh-hk">
+<meta property="og:updated_time" content="2017-10-17T11:47:46.417Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java程序执行原理">
+<meta name="twitter:description" content="java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/17/2017-10-17java程序执行原理/"/>
+
+
+
+
+
+  <title> java程序执行原理 | Pola Bear's Blog </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-hk">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+<!-- 增加GitHub fork -->
+    <a href="https://github.com"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://camo.githubusercontent.com/567c3a48d796e2fc06ea80409cc9dd82bf714434/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f6c6566745f6461726b626c75655f3132313632312e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_left_darkblue_121621.png"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Pola Bear's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">越美麗越不可觸碰</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分類
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/17/2017-10-17java程序执行原理/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="北極熊">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oxppsnlbz.bkt.clouddn.com/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Pola Bear's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                java程序执行原理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-10-17T19:46:24+08:00">
+                2017-10-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分類於</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/筆記/" itemprop="url" rel="index">
+                    <span itemprop="name">筆記</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>java  应用可以打包成jar 格式， jar格式其实只是一种很普通的压缩格式，与zip格式一样，只不过是它会在压缩文件的目录结构中增加一个META-INF/ MANIFEST.MF 的元文件。</p>
+<a id="more"></a>
+<p>​     我们知道，经过编译的字节码class文件可以直接放到java虚拟机去解释执行（JIT方式）， 我们通过在命令行调用“java  class文件的路径”就可以使用jvm（java.exe/javaw.exe）来解释执行这些字节码文件。   </p>
+<p>​     我们知道，java源代码(.java文件)经过java编译器javac编译以后，会得到java的字节码的中间语言文件，也就是我们通常所说的类文件（.class文件），这些类文件会按照java源文件的包结构分目录存放，jar 命令的作用就是按照这种包目录结构打包这些字节码的class文件，形成一个jar包，并且增加一个META-INF/ MANIFEST.MF 的元文件 。这样打包的jar文件的确是包含了按照包目录结构存放的字节码class文件，但是这时候如果你在命令行：jar -jar  a.jar 的话，会提示你指定一个主类，这是因为，虽然jar包里面包含了按照包目录结构存放的字节码class文件，但是却并不知道主类（含有 public static void main(String[])入口 方法的类）的位置，所以需要你手动的指定主类，然后才可以开始执行。</p>
+<p>​    当然， 只需要在打包jar文件的时候，将主类的信息包含进去了以后，再：jar -jar  a.jar 的话， 就不需要手动的指出主类是哪个类了。进行如下操作：</p>
+<p>​    新建一个.mf文件，名字任意，例如：manifest.mf ，在里面指定主类是哪个类，即：写入一行 ：Main-Class: test.Test。然后，打包： jar  cvfm test.jar manifest.mf test； 这样打成的包test.jar里面就已经包含主类是哪个类的信息了。这样的话，在命令行里面直接执行：jar -jar    test.jar 就可以运行该应用了，这种情况下， jvm会去这个class文件的包中寻找入口函数如何进入执行。</p>
+<p>​     我们发布java应用的时候，直接发布按照包结构存放的class文件夹显然是很不方便的，一般需要打包成jar文件来发布。 就好象我们将java应用部署到tomcat web 服务器上去的时候一样， 虽然直接将按照包结构存放的class文件夹放过去是可以的，但是通常还是要打包成jar包的格式来部署，因为这样文件的数量会少，便于管理部署的。</p>
+<p>​       </p>
+<p>​     将命令行的“java -jar jar文件的路径” 写到一个.bat文件里面 或者linux下面的shell文件里面，这样就可以通过执行.bat文件或者shell脚步来执行java 应用程序了，也就是说可以直接双击windows下的.bat文件或者linux下的.sh文件来运行java应用程序了。</p>
+<p>  一般在安装jre (Java Runtime Environment) 的时候，安装文件会将 .jar 文件映射给 javaw.exe 打开，如果没有关联，也可以手动的通过文件夹选项来手动关联，关联以后，当用户在windows下双击jar文件的时候，资源管理器就会调用javaw来运行该jar文件，这样就可以实现双击运行jar文件了。</p>
+<p>jdk 相关过程原理分析。</p>
+<p> 我们知道，在jdk的bin目录下有很多的exe文件，例如java.exe， javac.exe, javadoc.exe等。 这些exe文件格式实质上是windows操作系统下的可执行文件格式（在dos下还有一种可执行可是是.com后缀的格式，不过现在已经不常见了），它们是由C语言写成的.c文件经过编译后生成的。例如：java.exe对应的源码就是java.c文件。java.c的main入口函数中会调用函数：CreateExecutionEnvironment，该函数中会查找jre路径，然后根据jvm.cfg配置文件配置的虚拟机动态链接库（jvm.dll）路径参数装载jvm.dll动态连接库，也就是加载java虚拟机（java虚拟机是C++写的，也有部分C代码），然后初始化jvm.dll（所有的dll都是本地语言写成的）， 并挂接到JNIEnv（JNI调用接口）实例，最后调用JNIEnv实例装载并处理class类。<br>​      由上面的分析我们可以看到，windows操作系统下的exe文件大部分情况下是使用windows本地语言所写的代码编译而成的的，这些exe文件用于完成一定的功能，例如java.exe， 可以用来查找并加载jvm.dll ，然后通过调用jvm.dll 的  接口来加载java的字节码中间语言文件.class文件，并启动java应用程序。 或者完成其它的一些功能等。exe文件也可能是本地语言代码生成的exe文件与jar包压缩而成的。</p>
+<p>​    </p>
+<p>​    </p>
+<p>​      </p>
+<p>   更加方便的方法是，将jar做成exe。例如eclipse 就是一个java 应用程序，就采用了 使用exe来wrapper。</p>
+<p>   wrapper 基本原理： 在本地化语言（C或者C++等）代码中调用jvm.dll，然后通过jvm.dll提供的接口加载压缩在一起的jar包中的主类class的入口方法（ static void main(String args[])， 从而启动java应用程序，这种加壳方式形成的java应用的exe文件在启动的时候会表现为一个exe进程，这种方式更常见。（形式是一个由本地化语言exe和jar包一起压缩而成的一个exe文件）；</p>
+<p>​        也可以在本地化语言（C或者C++等）代码中调用java.exe/javaw.exe进程（java.exe进程会执行前一种方法的步骤来完成jvm.dll的加载）来加载jvm.dll，然后通过jvm.dll提供的接口加载压缩在一起的jar包中的主类class的入口方法（ static void main(String args[])， 从而启动java应用程序，这种加壳方式形成的java应用的exe文件在启动的时候会表现为一个exe进程和一个javaw进程。（形式是一个由本地化语言exe和jar包一起压缩而成的一个exe文件，当然，也可以选择不将jar文件和本地exe文件压缩在一起）；</p>
+<p>   这两种根本上都是通过本地代码来加载java虚拟机，然后在本地代码中通过调用jvm.dll的接口来完成class主文件的加载和java应用的启动的。</p>
+<p>   具体来说，也有很多种方法。</p>
+<p>   可以使用c语言等本地语言创建一个本地代码（编译后生成exe文件），在该本地代码中加载jvm的动态库，并通过动态库的接口来在本进程内启动java虚拟机，即调用JNI_CreateJavaVM这个导出函数来创建Java虚拟机，得到JNIEnv指针，然后调用FindClass查找Main Class，之后调用GetStaticMethodID方法得到main方法，并执行main方法。    编译该本地代码得到一个exe文件。</p>
+<p>   将Java应用程序的class目录结构打包为jar文件，并与本地代码exe文件合并：在Dos提示符下执行copy命令:</p>
+<p>C:/&gt;copy test.exe+test.jar test.exe</p>
+<p>其实，就是将Java打包文件追加到exe文件尾部。打开文件属性对话框，可看到有“压缩文件”属性页。</p>
+<p>老牌的JBuilder.exe开发工具编译生成的exe文件即采用如下方式生成。</p>
+<p>后记：大家在使用<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2和<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3时，在任务管理器中会看到二者的不同。</p>
+<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2是先启动<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe文件，然后由<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe启动Javaw.exe文件来创建虚拟机。</p>
+<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2在任务管理器中显示为<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe和javaw.exe两个进程。</p>
+<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3在任务管理器中显示为<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>.exe一个进程。</p>
+<p>从上面可以看出，<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2和<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3采用了不同的虚拟机加载方式。</p>
+<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.2采用创建子进程的方法调用javaw.exe来启动，在windows下面可以用CreateProcess方法，此种方法较简单，具体可参见<a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a>源码。</p>
+<p><a href="http://gocom.primeton.com/modules/gSpace/about_onetag.php?tagid=103&amp;tagname=Eclipse" target="_blank" rel="external">Eclipse</a> 3.3加载java虚拟机的另外一种方法是加载jvm的动态库，并通过动态库的接口来在本进程内启动java虚拟机。本文开头即采用的第二种方法。</p>
+<p>这很简单，启动vc，建一个win32 project，WinMain里使用ShellExecute函数即可，主要代码是：</p>
+<p>#include “stdafx.h”<br>#include “resource.h”</p>
+<p>int APIENTRY WinMain(HINSTANCE hInstance,<br>HINSTANCE hPrevInstance,<br>LPSTR lpCmdLine,<br>int nCmdShow)<br>{<br>ShellExecute(NULL,”open”,”.//jre6//bin//javaw.exe”,”-ea -Dfile.encoding=GB18030 -Xmx600M -splash:res//splash.png -classpath /“./lib/*/“ com.zms.laser.uis.Starter”,”.//“,SW_SHOWNORMAL);<br>return 0;<br>}<br>要给编译出来的可执行程序一个图标，很简单，只要添加一个icon的资源，让这个icon的id最小即可。编译器会把具有最小id的icon当作最终exe的图标。</p>
+<p>所有的给java 应用 加 exe 外壳的 工具软件 采用的都是以上原理中的一种。</p>
+
+      
+    </div>
+
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-star"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>哈哈哈!一分也是愛！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="http://oxppsnlbz.bkt.clouddn.com/wechat.jpg" alt="北極熊 WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="http://oxppsnlbz.bkt.clouddn.com/alipay.jpg" alt="北極熊 Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
+    </div>
+  </div>
+
+
+      
+    </div>
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/16/2017-10-16汇总/" rel="next" title="汇总">
+                <i class="fa fa-chevron-left"></i> 汇总
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/10/17/2017-10-17vue/" rel="prev" title="vue react 資料">
+                vue react 資料 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oxppsnlbz.bkt.clouddn.com/avatar.jpg"
+               alt="北極熊" />
+          <p class="site-author-name" itemprop="name">北極熊</p>
+           
+              <p class="site-description motion-element" itemprop="description">越美麗越不可觸碰</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分類</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://douban.com/" target="_blank" title="豆瓣">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  豆瓣
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i> 
+  </span>
+<span class="author" itemprop="copyrightHolder">北極熊</span>
+</div>
+
+
+<div class="powered-by">
+  由寶寶強力驅動
+  <i class="fa fa-user-md"></i><span id="busuanzi_container_site_uv">
+  本站访客数:<span id="busuanzi_value_site_uv"></span>
+</span>
+</div>
+
+
+<div class="theme-info">
+  博客 -Polabear
+</div>
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共13.1k字</span>
+</div>
+
+
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+  
+  <script type="text/javascript" src="true"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  
+  <script type="text/javascript"  color="160,32,240" opacity='0.7' zIndex="-2" count="150" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+  
+
+
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+</body>
+</html>
